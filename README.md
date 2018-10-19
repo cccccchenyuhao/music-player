@@ -1,6 +1,6 @@
 # 音乐播放器
 静态页面
-[需要fq](https://i.loli.net/2018/10/19/5bc9c1a54668f.png
+![需要fq](https://i.loli.net/2018/10/19/5bc9c1a54668f.png
 )
 功能分析
 - 从music.json文件获取数据
