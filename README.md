@@ -1,18 +1,15 @@
-var currentList = []
-var listIndex = 0
-var audio = new Audio()
-var clock
-audio.autoplay = true
+# 音乐播放器
+静态页面
+[需要fq](https://i.loli.net/2018/10/19/5bc9c1a54668f.png
+)
+功能分析
+- 从music.json文件获取数据
+- 播放、前进、后退、进度条、时间线
+- 歌曲列表、标题
 
-
-
-function $(selector) {
-    return document.querySelector(selector)
-}
-function $$(selector) {
-    return document.querySelectorAll(selector)
-}
-
+代码分析
+1. 使用AJAX获取数据,封装成getMusicList()函数
+```javascript
 function getMusicList(callback) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "./music.json", true)
@@ -28,32 +25,21 @@ function getMusicList(callback) {
     }
     xhr.send()
 }
+```
 
+2. 封装loadMusic()函数，用来设置audio对象的src，audio设置为自动播放
+```
 function loadMusic(musicObj) {
     audio.src = musicObj.src
     $(".title").innerText = musicObj.title
     $(".author").innerText = musicObj.author
 }
-
-
-
-
-getMusicList(function (list) {
-    currentList = list
-    list.forEach(function (eachList, index) {
-        var li = document.createElement('li')
-        li.setAttribute('id', index)
-        li.onclick = function () {
-                loadMusic(currentList[index])
-            }
-        li.innerText = index+1 + " "+eachList.title + "-" + eachList.author
-        $('.list').appendChild(li)
-    })
-    loadMusic(list[listIndex])
-})
-
-
-
+```
+3. 监听timeupdate事件，设置进度条
+4. 监听playing事件，设置定时器控制当前时间显示
+5. 监听pause事件清除定时器
+6. 监听ended事件切换下一首
+```
 audio.ontimeupdate = function () {
     $(".timeline-now").style.width = (this.currentTime/this.duration)*100 + '%'
 }
@@ -78,9 +64,9 @@ audio.onended = function () {
     listIndex++
     loadMusic(currentList[listIndex])
 }
-
-
-
+```
+7. 给控件绑定click事件,设置播放歌曲
+```
 $('.play').onclick = function () {
     if (audio.paused) {
         audio.play()
@@ -102,9 +88,4 @@ $('.prev').onclick = function () {
     console.log(listIndex)
     loadMusic(currentList[listIndex])
 }
-
-$('.timeline-total').onclick = function (e) {
-    var rate = e.offsetX/160
-    audio.currentTime = audio.duration*rate
-}
-
+```
