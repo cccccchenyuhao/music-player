@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+body {
+    background-color: #F9F7FE;
+}
+
+.music-ct {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+
+.control {
+    color: #16046E;
+    background-color: #E7E0F0;
+}
+
+.list {
+    background-color: #fff;
+}
+
+.control-head .cover {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    float: left;
+    border-radius: 5px;
+    background: url(./1.jpg) center/cover no-repeat;
+}
+
+.control-head .info {
+    margin-top: 20px;
+    float: left;
+}
+
+.control-body {
+    width: 100%;
+}
+
+.control-body .button {
+    width: 100px;
+    height: 30px;
+    margin: 0 20px 20px;
+    float: left;
+    position: relative;
+}
+
+.control-body .icon {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.control-body .timeline {
+    width: calc(100% - 160px);
+    height: 30px;
+    float: left;
+    position: relative;
+    margin-right: 20px;
+}
+
+.timeline-total {
+    width: 160px;
+    height: 6px;
+    background-color: #C3B6D7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.timeline-now {
+    width: 0;
+    height: 6px;
+    background-color: #66539C;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #281664;
+    float: right;
+    position: relative;
+    top: -2px;
+    right: -5px;
+}
+
+.time-now {
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    left: -30px;
+    text-align: right;
+}
+
+.time-total {
+    font-size: 12px;
+    position: absolute;
+    right: -30px;
+    top: -5px;
+    text-align: left;
+}
+
+.iconfont {
+    color: #160A4F;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.icon-prev {
+    position: relative;
+    left: -16px;
+}
+
+.icon-next {
+    position: relative;
+    right: -16px;
+}
+.info p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.list li {
+    color: #333;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.list {
+    height: 210px;
+    overflow: scroll;
+}
