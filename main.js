@@ -42,6 +42,10 @@ getMusicList(function (list) {
     currentList = list
     list.forEach(function (eachList, index) {
         var li = document.createElement('li')
+        li.setAttribute('id', index)
+        li.onclick = function () {
+                loadMusic(currentList[index])
+            }
         li.innerText = index+1 + " "+eachList.title + "-" + eachList.author
         $('.list').appendChild(li)
     })
